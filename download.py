@@ -1,6 +1,6 @@
 '''
 Created on 2015/8/22
-@author: Eric
+@author: Eric Chou
 '''
 import requests
 import csv
