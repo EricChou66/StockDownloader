@@ -40,21 +40,3 @@ def download_table(y,s,filename):
             csvfile.writerow(records)   
     f.close()
     return
-"""
-#another method
-url = 'http://mops.twse.com.tw/server-java/t105sb02'
-#head = {"User-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9;*/*;q=0.8","Accept-Language":"zh-TW,zh;q=0.8,en-US;q=0.5,en;q=0.3","Accept-Encoding":"gzip, deflate","Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","Referer": "http://mops.twse.com.tw/mops/web/t163sb04"}
-head = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9;*/*;q=0.8","Accept-Language":"zh-TW,zh;q=0.8,en-US;q=0.5,en;q=0.3","Accept-Encoding":"gzip, deflate","Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","Referer": "http://mops.twse.com.tw/mops/web/t163sb04"}
-par = {'firstin':'true','step':'10','filename':'t163sb04_20150918_000429852.csv'}
-sess = requests.Session()
-res = sess.post(url,headers = head,data = par)
-print("downloading")
-f = open("testq02.csv",'wb')
-for row in res.iter_lines(): 
-    f.write(row)
-    if not(row==(bytes('','UTF-8'))):
-        f.write(bytes('\n','UTF-8'))
-f.close()
-print("download finished")
-#print(res.content)
-"""
