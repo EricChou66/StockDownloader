@@ -76,7 +76,7 @@ class boundary_value_test(unittest.TestCase):
         self.assertFalse(download_quarter(5, 104))
         self.assertFalse(download_quarter(5, current_year-1))
         self.assertFalse(download_quarter(5, current_year))
-"""
+
 class equivalence_class_test(unittest.TestCase):
 #-10000000000<=val1<=10000000000; {va11<-10000000000},{-10000000000<=va12<=-10000000000},{10000000000<va13}
 #-10000000000<=val2<0;0<val2<=10000000000; {va21<-10000000000},{-10000000000<=va22<0},{va23==0},{0<va24<=10000000000},{10000000000<va25}
@@ -102,7 +102,7 @@ class equivalence_class_test(unittest.TestCase):
         self.assertFalse(download_quarter(-1, current_year+1))
         self.assertFalse(download_quarter(4, current_year+2))
         self.assertFalse(download_quarter(6, current_year+3))
-"""    
+   
 
 if __name__ == '__main__':
     unittest.main(exit=False)
