@@ -8,7 +8,6 @@ from startup import Calculate
 from startup import download_quarter
 from startup import removexml
 
-
 class boundary_value_test(unittest.TestCase):
 #Take {-10000000000.00,+10000000000.00} as the bound of Calculate input val1
 #Take {-10000000000.00,!=0,+10000000000.00} as the bound of Calculate input val2
@@ -102,7 +101,40 @@ class equivalence_class_test(unittest.TestCase):
         self.assertFalse(download_quarter(-1, current_year+1))
         self.assertFalse(download_quarter(4, current_year+2))
         self.assertFalse(download_quarter(6, current_year+3))
-   
+        
+class path_coverage_test(unittest.TestCase):
+    def test_Calculate(self):
+        self.assertEqual(Calculate(20000000000,20000000000),'error')
+        self.assertEqual(Calculate(20000000000,-99999999999),'error')
+        self.assertEqual(Calculate(20000000000,0),'error')
+        self.assertEqual(Calculate(20000000000,12345),'error')
+        
+        self.assertEqual(Calculate(-10000000005,20000000000),'error')
+        self.assertEqual(Calculate(-10000000005,-99999999999),'error')
+        self.assertEqual(Calculate(-10000000005,0),'error')
+        self.assertEqual(Calculate(-10000000005,12345),'error')
+        
+        self.assertEqual(Calculate(23560,20000000000),'error')
+        self.assertEqual(Calculate(23560,-99999999999),'error')
+        self.assertEqual(Calculate(23560,0),'error')
+        self.assertEqual(Calculate(23560,12345),'90.85')
+
+    def test_download_quarter(self):
+        current_year = date.today().year - 1911
+        self.assertFalse(download_quarter(0, current_year+1))
+        self.assertFalse(download_quarter(1, current_year+1))
+        self.assertFalse(download_quarter(2, current_year+1))
+        self.assertFalse(download_quarter(5, current_year+1))
+        
+        self.assertFalse(download_quarter(0, 103))
+        self.assertTrue(download_quarter(1, 103))
+        self.assertTrue(download_quarter(2, 103))
+        self.assertFalse(download_quarter(5, 103))
+        
+        self.assertFalse(download_quarter(0, 100))
+        self.assertFalse(download_quarter(1, 100))
+        self.assertFalse(download_quarter(2, 100))
+        self.assertFalse(download_quarter(5, 100))
 
 if __name__ == '__main__':
     unittest.main(exit=False)

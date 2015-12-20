@@ -2,6 +2,7 @@
 Created on 2015/8/22
 @author: Eric Chou
 '''
+
 import requests
 import csv
 from bs4 import BeautifulSoup

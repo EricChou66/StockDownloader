@@ -2,6 +2,7 @@
 Created on 2015/8/22
 @author: Eric Chou
 '''
+
 import csv
 import os
 from download import download_table
@@ -23,7 +24,7 @@ def download_quarter(quarter,year):
     if quarter>4 or quarter<=0 :
         print('Wrong quarter input,The quarter is in the range 1-4\n')
         return False
-    if quarter==2 and year>102:
+    if quarter==2 and year>=102:
         if(not download_table(year,quarter,"cq.csv")):
             print("Can't find data of this year:",year,'\n')
             return False
@@ -33,7 +34,7 @@ def download_quarter(quarter,year):
         if(not download_table(year-1,(quarter+2),"tqbq.csv")):
             print("Can't find data of this year:",year,'\n')
             return False
-    elif quarter==1 and year>102:
+    elif quarter==1 and year>=102:
         if(not download_table(year,quarter,"cq.csv")):
             print("Can't find data of this year:",year,'\n')
             return False
