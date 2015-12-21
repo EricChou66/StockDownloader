@@ -26,33 +26,33 @@ def download_quarter(quarter,year):
         return False
     if quarter==2 and year>=102:
         if(not download_table(year,quarter,"cq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year,(quarter-1),"lq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year-1,(quarter+2),"tqbq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
     elif quarter==1 and year>=102:
         if(not download_table(year,quarter,"cq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year-1,(quarter+3),"lq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year-1,(quarter+2),"tqbq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
     else:
         if(not download_table(year,quarter,"cq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year,(quarter-1),"lq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
         if(not download_table(year,(quarter-2),"tqbq.csv")):
-            print("Can't find data of this year:",year,'\n')
+            print("Can't find data of",year,"Q",quarter,'\n')
             return False
     return True
 #This function is to remove the data xml

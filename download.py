@@ -20,7 +20,7 @@ def download_table(year,quarter,filename):
     #To check if data exist
     exist_info = soup.find_all("font",attrs={'color' : 'red'})
     te= [elem.text for elem in exist_info]
-    if te == ['查詢無資料！']:
+    if (te == ['上市、上櫃及興櫃公司101年(含)以前之財報資料請至採IFRSs前之彙總報表、彙總合併報表、或第一上市櫃彙總報表查詢！']) or (te == ['查詢無資料！']):
         return False
     
     table1 = soup.find_all("table",class_="hasBorder")[2]
